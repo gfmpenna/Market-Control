@@ -157,3 +157,7 @@ class DaoFuncionario:
             func.append(Funcionario([0], [1], [2], [3], [4], [5]))
 
         return func
+
+
+#DaoFuncionario.salvar(Funcionario('2543544','Steve Jobs', '111444333444-66', '2543544222', 'meuemail@hotmail.com','Minha Rua N ° 999'))
+#print(DaoFuncionario.listar())
