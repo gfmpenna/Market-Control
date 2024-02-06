@@ -1,0 +1,6 @@
+Frutas
+Legumes
+Verduras
+ElatadosFrios
+Frios
+Cereais

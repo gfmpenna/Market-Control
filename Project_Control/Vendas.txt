@@ -1,0 +1,4 @@
+Banana | 5 | Frutas | Caio | Marcos | 5 | 06/02/2024
+Alface | 5 | Legumes | Guilheme | Ramom | 50 | 06/02/2024
+Alface|5|Legumes|Joaquim|Ramom|75|06/02/2024
+Alface|5|Legumes|Joaquim|Ramom|75|06/02/2024

@@ -1,0 +1,4 @@
+Maça|13.99|Frutas|50
+Pera|13.99|Frutas|10
+Caju|8.99|Frutas|10
+Caju|8.99|Frutas|10
