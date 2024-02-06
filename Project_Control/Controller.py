@@ -36,6 +36,7 @@ class ControllerCategoria:
                 for i in C:
                     arq.write(i.categoria)
                     arq.write('\n')
+                    
     def alterarCategoria(self,alterarCategoria, alteradaCategoria):
         x = DaoCategoria.listar()
 
