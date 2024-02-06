@@ -15,7 +15,7 @@ class DaoCategoria:
         cls.categoria = list(map(lambda x: x.replace('\n', ''), cls.categoria))  # Aqui estamos eliminando o \n da linha
         cat = [Categoria(i) for i in (cls.categoria)]
 
-        return print(cat)
+        return cat
 
 
 class DaoVenda:
@@ -124,12 +124,12 @@ class DaoPessoa:
             cls.Pessoa = list(map(lambda x: x.split('|'), cls.Pessoa))
         pess = []
         for i in cls.Pessoa:
-            pess.append(Pessoa(i[0], i[1], i[2], i[3], i[4]))
+            pess.append(Pessoa([0], [1], [2], [3], [4]))
         return pess
 
 
-# DaoPessoa.salvar(Pessoa('Ramom','22 9999917080', '154633232-75','Meuemailaqui@gmail.com','Rua sem Limites n° 42'))
-# print(DaoPessoa.listar())
+#DaoPessoa.salvar(Pessoa('Marcos','22 9999917080', '154633232-75','Meuemailaqui@gmail.com','Rua sem Limites n° 42'))
+#print(DaoPessoa.listar())
 
 class DaoFuncionario:
 
