@@ -31,7 +31,7 @@ class ControllerCategoria:
                     del C[i]
                     break
             print('Categoria removido com sucesso!')
-
+        #TODO: COLOCAR SEM CATEGORIA NO ESTOQUE
             with open('Categorias.txt', "w") as arq:
                 for i in C:
                     arq.write(i.categoria)
@@ -43,9 +43,10 @@ class ControllerCategoria:
         cat = list(filter(lambda x: x.categoria == alterarCategoria, x))
         if len(cat) > 0:
             cat_anterada = list(filter(lambda x: x.categoria == alteradaCategoria, x))
-            if len(cat_anterada) > 0:
-                x = list(map(lambda x: Categoria(alteradaCategoria) if (x.categoria == alteradaCategoria) else (x),x))
+            if len(cat_anterada) == 0:
+                x = list(map(lambda x: Categoria(alteradaCategoria) if (x.categoria == alterarCategoria) else (x),x))
                 print('Categoria alterada com Sucesso')
+                #TODO: ALTERAR CATEGORIA TAMBEM NO ESTOQUE
             else:
                 print('Categoria que deseja alterar já existe')
         else:
@@ -56,17 +57,20 @@ class ControllerCategoria:
                 arq.writelines(i.categoria)
                 arq.write('\n')
 
+    def mostrarCategorias(self):
+        categorias = DaoCategoria.listar()
 
-
-
-
-
-
-
-
-
+        if len(categorias) == 0:
+            print('Categorias Não existentes!')
+            return 0
+        for i in categorias:
+            print(f'Categoria {i.categoria}')
+'''
 c = ControllerCategoria()
-#c.cadastrarCategoria('Limpeza')
-#c.deletarCategoria('Limpeza')
-
+c.mostrarCategorias()
+c.cadastrarCategoria('Cereais')
+c.deletarCategoria('Limpeza')
+c.alterarCategoria('Carnes', 'Carnes')
 c.deletarCategoria('Cereais')
+'''
+
