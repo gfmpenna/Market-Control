@@ -31,22 +31,22 @@ class ControllerCategoria:
                     del C[i]
                     break
             print('Categoria removido com sucesso!')
-        #TODO: COLOCAR SEM CATEGORIA NO ESTOQUE
+            # TODO: COLOCAR SEM CATEGORIA NO ESTOQUE
             with open('Categorias.txt', "w") as arq:
                 for i in C:
                     arq.write(i.categoria)
                     arq.write('\n')
-                    
-    def alterarCategoria(self,alterarCategoria, alteradaCategoria):
+
+    def alterarCategoria(self, alterarCategoria, alteradaCategoria):
         x = DaoCategoria.listar()
 
         cat = list(filter(lambda x: x.categoria == alterarCategoria, x))
         if len(cat) > 0:
             cat_anterada = list(filter(lambda x: x.categoria == alteradaCategoria, x))
             if len(cat_anterada) == 0:
-                x = list(map(lambda x: Categoria(alteradaCategoria) if (x.categoria == alterarCategoria) else (x),x))
+                x = list(map(lambda x: Categoria(alteradaCategoria) if (x.categoria == alterarCategoria) else (x), x))
                 print('Categoria alterada com Sucesso')
-                #TODO: ALTERAR CATEGORIA TAMBEM NO ESTOQUE
+                # TODO: ALTERAR CATEGORIA TAMBEM NO ESTOQUE
             else:
                 print('Categoria que deseja alterar já existe')
         else:
@@ -65,6 +65,8 @@ class ControllerCategoria:
             return 0
         for i in categorias:
             print(f'Categoria {i.categoria}')
+
+
 '''
 c = ControllerCategoria()
 c.mostrarCategorias()
@@ -74,3 +76,25 @@ c.alterarCategoria('Carnes', 'Carnes')
 c.deletarCategoria('Cereais')
 '''
 
+
+class ControllerEstoque:
+
+    def cadastrarProduto(self, nome, preco, categoria, quantidade):
+        x = DaoEstoque.listar()
+        y = DaoCategoria.listar()
+        cat = list(filter(lambda c: c.categoria == categoria, y))
+        est = list(filter(lambda n: n.produto.nome == nome, x))
+
+        if len(cat) > 0:
+            if len(est) == 0:
+                produto = Produtos(nome, preco, categoria)
+                DaoEstoque.salvar(produto, quantidade)
+                print('Produto cadastrado com Sucesso')
+            else:
+                print('Produto não Cadastrado!')
+        else:
+            print('Categoria Inexistente')
+
+
+#c = ControllerEstoque()
+#c.cadastrarProduto('Pepino','12.99','Legumes','15')

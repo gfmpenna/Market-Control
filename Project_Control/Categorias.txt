@@ -1,6 +1,5 @@
 Frutas
 Legumes
 Verduras
-ElatadosFrios
 Frios
 Carnes
