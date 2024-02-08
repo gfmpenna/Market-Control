@@ -74,9 +74,9 @@ c.cadastrarCategoria('Cereais')
 c.deletarCategoria('Limpeza')
 c.alterarCategoria('Carnes', 'Carnes')
 c.deletarCategoria('Cereais')
-'''
 c = ControllerCategoria()
 c.cadastrarCategoria('Cereais')
+'''
 
 class ControllerEstoque:
 
