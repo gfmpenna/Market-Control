@@ -78,6 +78,7 @@ c = ControllerCategoria()
 c.cadastrarCategoria('Cereais')
 '''
 
+
 class ControllerEstoque:
 
     def cadastrarProduto(self, nome, preco, categoria, quantidade):
@@ -112,12 +113,39 @@ class ControllerEstoque:
 
         with open('Estoque.txt', "w") as arq:
             for i in x:
-                arq.writelines(i.produto.nome + "|" + i.produto.preco + "|" + i.produto.categoria + "|" + str(i.quantidade) + "\n")
+                arq.writelines(
+                    i.produto.nome + "|" + i.produto.preco + "|" + i.produto.categoria + "|" + str(i.quantidade) + "\n")
 
+    def alterarProduto(self, nomeAlterar, novoNome, novoPreco, novaCategoria, novaQuantidade):
 
+        x = DaoEstoque.listar()
+        y = DaoCategoria.listar()
+
+        altNome = list(filter(lambda x: x.produto.nome == nomeAlterar, x))
+        altCategoria = list(filter(lambda y: y.categoria == novaCategoria, y))
+
+        if len(altCategoria) > 0:
+            if len(altNome) > 0:
+                est = list(filter(lambda x: x.produto.nome == novoNome, x))
+                if len(est) == 0:
+                    x = list(map(lambda n: Estoque(Produtos(novoNome, novoPreco, novaCategoria), novaQuantidade) if (
+                            n.produto.nome == nomeAlterar) else (n), x))
+                    print(f'Produto Alterado com sucesso')
+                else:
+                    print(f'Produto já Existe')
+            else:
+                print('Produto Não Exites nos  Cadastros!')
+
+            with open('Estoque.txt', "w") as arq:
+                for i in x:
+                    arq.writelines(i.produto.nome + "|" + i.produto.preco + "|" + i.produto.categoria + "|" + str(
+                        i.quantidade))
+                    arq.writelines("\n")
+        else:
+            print('Produto ou Categoria não existem')
 
 
 c = ControllerEstoque()
-c.cadastrarProduto('Cebola','14.99','Legumes','10')
-
-c.deletarProduto('Tomate')
+c.cadastrarProduto('Mamão', '14.99', 'Legumes', '10')
+c.alterarProduto('Mamão', 'Laranja', '15,99', 'Legumes', '10')
+# c.deletarProduto('Tomate')

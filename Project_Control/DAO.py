@@ -46,6 +46,7 @@ class DaoVenda:
 
 
 class DaoEstoque:
+
     @classmethod
     def salvar(cls, produtos: Produtos, quantidade):
         with open('Estoque.txt', "a") as arq:
