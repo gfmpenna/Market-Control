@@ -1,5 +1,5 @@
-Maçã|12.99|Legumes|15
-Limão|14.99|Frutas|10
-Limão Siciliano|14.99|Frutas|10
-Limão Branco|14.99|Frutas|10
-Jabuticaba|14.99|Frutas|10
+Maï¿½ï¿½|12.99|Legumes|15
+Limï¿½o|14.99|Frutas|10
+Limï¿½o Siciliano|14.99|Frutas|10
+Limï¿½o Branco|14.99|Frutas|10
+

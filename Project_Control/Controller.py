@@ -102,21 +102,21 @@ class ControllerEstoque:
         delProd = list(filter(lambda c: c.produto.nome == nome, x))
 
         if len(delProd) > 0:
-            for i in range(len(delProd)):
-                if delProd[i].produto.nome == nome:
-                    del delProd[i]
+            for i in range(len(x)):
+                if x[i].produto.nome == nome:
+                    del x[i]
                     break
         else:
             print('Produto Inexistente, impossivel remover')
 
         with open('Estoque.txt', "w") as arq:
             for i in x:
-                arq.writelines(i.produto.nome + "|" + i.produto.preco + "|" + i.produto.categoria + "|" + i.quantidade + "\n")
-                arq.write('\n')
+                arq.writelines(i.produto.nome + "|" + i.produto.preco + "|" + i.produto.categoria + "|" + str(i.quantidade))
+            arq.write('\n')
 
 
 
 c = ControllerEstoque()
 c.cadastrarProduto('Jabuticaba','14.99','Frutas','10')
 
-#c.deletarProduto('Pepino')
+#c.deletarProduto('Jabuticaba')
