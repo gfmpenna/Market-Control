@@ -1,5 +1,4 @@
-Ma��|12.99|Legumes|15
-Lim�o|14.99|Frutas|10
-Lim�o Siciliano|14.99|Frutas|10
-Lim�o Branco|14.99|Frutas|10
-
+Jabuticaba|14.99|Frutas|10
+Cenoura|14.99|Legumes|10
+Beterraba|14.99|Legumes|10
+Cebola|14.99|Legumes|10

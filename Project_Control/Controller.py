@@ -106,17 +106,18 @@ class ControllerEstoque:
                 if x[i].produto.nome == nome:
                     del x[i]
                     break
+            print('Produto Excluido com Sucesso')
         else:
             print('Produto Inexistente, impossivel remover')
 
         with open('Estoque.txt', "w") as arq:
             for i in x:
-                arq.writelines(i.produto.nome + "|" + i.produto.preco + "|" + i.produto.categoria + "|" + str(i.quantidade))
-            arq.write('\n')
+                arq.writelines(i.produto.nome + "|" + i.produto.preco + "|" + i.produto.categoria + "|" + str(i.quantidade) + "\n")
+
 
 
 
 c = ControllerEstoque()
-c.cadastrarProduto('Jabuticaba','14.99','Frutas','10')
+c.cadastrarProduto('Cebola','14.99','Legumes','10')
 
-#c.deletarProduto('Jabuticaba')
+c.deletarProduto('Tomate')
