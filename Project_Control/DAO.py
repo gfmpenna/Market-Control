@@ -128,8 +128,8 @@ class DaoPessoa:
         return pess
 
 
-#DaoPessoa.salvar(Pessoa('Marcos','22 9999917080', '154633232-75','Meuemailaqui@gmail.com','Rua sem Limites n° 42'))
-#print(DaoPessoa.listar())
+# DaoPessoa.salvar(Pessoa('Marcos','22 9999917080', '154633232-75','Meuemailaqui@gmail.com','Rua sem Limites n° 42'))
+# print(DaoPessoa.listar())
 
 class DaoFuncionario:
 
@@ -154,10 +154,9 @@ class DaoFuncionario:
             cls.Funcionarios = list(map(lambda x: x.split('|'), cls.Funcionarios))
         func = []
         for i in cls.Funcionarios:
-            func.append(Funcionario([0], [1], [2], [3], [4], [5]))
+            func.append(Funcionario(i[0], i[1], i[2], i[3], i[4], i[5]))
 
         return func
 
-
-#DaoFuncionario.salvar(Funcionario('2543544','Steve Jobs', '111444333444-66', '2543544222', 'meuemail@hotmail.com','Minha Rua N ° 999'))
-#print(DaoFuncionario.listar())
+# DaoFuncionario.salvar(Funcionario('2543544','Steve Jobs', '111444333444-66', '2543544222', 'meuemail@hotmail.com','Minha Rua N ° 999'))
+# print(DaoFuncionario.listar())
