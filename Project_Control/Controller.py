@@ -75,7 +75,8 @@ c.deletarCategoria('Limpeza')
 c.alterarCategoria('Carnes', 'Carnes')
 c.deletarCategoria('Cereais')
 '''
-
+c = ControllerCategoria()
+c.cadastrarCategoria('Cereais')
 
 class ControllerEstoque:
 
@@ -116,6 +117,6 @@ class ControllerEstoque:
 
 
 c = ControllerEstoque()
-c.cadastrarProduto('Maçã','12.99','Legumes','15')
+c.cadastrarProduto('Limão','14.99','Frutas','10')
 
-c.deletarProduto('Pepino')
+#c.deletarProduto('Pepino')

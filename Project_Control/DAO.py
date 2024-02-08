@@ -66,9 +66,12 @@ class DaoEstoque:
             cls.Estoque = list(map(lambda v: v.split('|'), cls.Estoque))
 
         estoque = []
+        print(cls.Estoque)
         if len(cls.Estoque) > 0:
             for i in cls.Estoque:
+
                 estoque.append(Estoque(Produtos(i[0], i[1], i[2]), i[3]))
+                print(estoque)
 
         return estoque
 
