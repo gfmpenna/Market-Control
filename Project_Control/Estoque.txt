@@ -1,6 +1,2 @@
-Maça|13.99|Frutas|50
-Pera|13.99|Frutas|10
-Caju|8.99|Frutas|10
-Caju|8.99|Frutas|10
-Banana|12.99|Frutas|15
-Pepino|12.99|Legumes|15
+Maçã|12.99|Legumes|15
+Limão|14.99|Frutas|10

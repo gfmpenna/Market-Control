@@ -75,7 +75,8 @@ c.deletarCategoria('Limpeza')
 c.alterarCategoria('Carnes', 'Carnes')
 c.deletarCategoria('Cereais')
 '''
-
+c = ControllerCategoria()
+c.cadastrarCategoria('Cereais')
 
 class ControllerEstoque:
 
@@ -95,6 +96,27 @@ class ControllerEstoque:
         else:
             print('Categoria Inexistente')
 
+    def deletarProduto(self, nome):
+        x = DaoEstoque.listar()
 
-#c = ControllerEstoque()
-#c.cadastrarProduto('Pepino','12.99','Legumes','15')
+        delProd = list(filter(lambda c: c.produto.nome == nome, x))
+
+        if len(delProd) > 0:
+            for i in range(len(delProd)):
+                if delProd[i].produto.nome == nome:
+                    del delProd[i]
+                    break
+        else:
+            print('Produto Inexistente, impossivel remover')
+
+        with open('Estoque.txt', "w") as arq:
+            for i in x:
+                arq.writelines(i.produto.nome + "|" + i.produto.preco + "|" + i.produto.categoria + "|" + i.quantidade + "\n")
+                arq.write('\n')
+
+
+
+c = ControllerEstoque()
+c.cadastrarProduto('Limão','14.99','Frutas','10')
+
+#c.deletarProduto('Pepino')
