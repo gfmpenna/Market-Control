@@ -66,12 +66,9 @@ class DaoEstoque:
             cls.Estoque = list(map(lambda v: v.split('|'), cls.Estoque))
 
         estoque = []
-        print(cls.Estoque)
         if len(cls.Estoque) > 0:
             for i in cls.Estoque:
-
                 estoque.append(Estoque(Produtos(i[0], i[1], i[2]), i[3]))
-                print(estoque)
 
         return estoque
 
@@ -127,7 +124,7 @@ class DaoPessoa:
             cls.Pessoa = list(map(lambda x: x.split('|'), cls.Pessoa))
         pess = []
         for i in cls.Pessoa:
-            pess.append(Pessoa([0], [1], [2], [3], [4]))
+            pess.append(Pessoa(i[0], i[1], i[2], i[3], i[4]))
         return pess
 
 
