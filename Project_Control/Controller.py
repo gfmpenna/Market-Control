@@ -117,6 +117,6 @@ class ControllerEstoque:
 
 
 c = ControllerEstoque()
-c.cadastrarProduto('Limão','14.99','Frutas','10')
+c.cadastrarProduto('Jabuticaba','14.99','Frutas','10')
 
 #c.deletarProduto('Pepino')
