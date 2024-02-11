@@ -160,7 +160,28 @@ class ControllerEstoque:
 
 
 c = ControllerEstoque()
+
+
 # c.cadastrarProduto('Mamão', '14.99', 'Legumes', '10')
 # c.alterarProduto('Mamão', 'Laranja', '15,99', 'Legumes', '10')
 # c.deletarProduto('Tomate')
-c.mostrarEstoque()
+# c.mostrarEstoque()
+
+
+class ControllerVenda:
+
+    def cadastrarVenda(self, nomeProduto, vendedor, comprador, quantidadeVendida):
+        x = DaoEstoque.listar()
+
+        y = list(filter(lambda x: x.produto.nome == nomeProduto, x))
+        z = list(filter(lambda x: x.quantidade >= quantidadeVendida,x))
+
+        if len(y) > 0 and len(z) > 0:
+            print("Produto Disponivel")
+        else:
+            print("Passou no Else")
+
+
+c = ControllerVenda()
+
+c.cadastrarVenda('Laranja', 'qualquer1', 'qualquer2', '10')
