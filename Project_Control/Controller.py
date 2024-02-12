@@ -176,8 +176,6 @@ class ControllerVenda:
         y = list(filter(lambda x: x.produto.nome == nomeProduto, x))
         z = list(filter(lambda x: x.quantidade >= quantidadeVendida,x))
 
-        value = 0
-
         if len(y) > 0 and len(z) > 0:
             for i in x:
                 vendido = Venda(Produtos(i.produto.nome, i.produto.preco, i.produto.categoria), vendedor, comprador, float(i.quantidade))
@@ -192,4 +190,4 @@ class ControllerVenda:
 
 c = ControllerVenda()
 
-c.cadastrarVenda('Melância', 'qualquer1', 'qualquer2', '10')
+c.cadastrarVenda('Jabuticaba', 'qualquer1', 'qualquer2', '10')
