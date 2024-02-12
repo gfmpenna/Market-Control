@@ -176,12 +176,20 @@ class ControllerVenda:
         y = list(filter(lambda x: x.produto.nome == nomeProduto, x))
         z = list(filter(lambda x: x.quantidade >= quantidadeVendida,x))
 
+        value = 0
+
         if len(y) > 0 and len(z) > 0:
-            print("Produto Disponivel")
+            for i in x:
+                vendido = Venda(Produtos(i.produto.nome, i.produto.preco, i.produto.categoria), vendedor, comprador, float(i.quantidade))
+
+            DaoVenda.salvar(vendido)
+
+            totalVendido = float(i.produto.preco) * float(quantidadeVendida)
+            print('Venda cadastrado com Sucesso', totalVendido)
         else:
             print("Passou no Else")
 
 
 c = ControllerVenda()
 
-c.cadastrarVenda('Laranja', 'qualquer1', 'qualquer2', '10')
+c.cadastrarVenda('Melância', 'qualquer1', 'qualquer2', '10')
