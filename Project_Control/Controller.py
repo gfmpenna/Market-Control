@@ -184,10 +184,15 @@ class ControllerVenda:
 
             totalVendido = float(i.produto.preco) * float(quantidadeVendida)
             print('Venda cadastrado com Sucesso', totalVendido)
+
+            if quantidadeVendida == i.quantidade:
+                print('Venda')
+            else:
+                print('Venda não feita')
         else:
             print("Passou no Else")
 
 
 c = ControllerVenda()
 
-c.cadastrarVenda('Jabuticaba', 'qualquer1', 'qualquer2', '10')
+c.cadastrarVenda('Laranja', 'qualquer1', 'qualquer2', '10')

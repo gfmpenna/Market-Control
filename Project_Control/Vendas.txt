@@ -5,3 +5,4 @@ Alface|5|Legumes|Joaquim|Ramom|75|06/02/2024
 Laranja|15.99|Legumes|qualquer1|qualquer2|10|11/02/2024
 Laranja|15.99|Legumes|qualquer1|qualquer2|10.0|11/02/2024
 Laranja|15.99|Legumes|qualquer1|qualquer2|10.0|11/02/2024
+Laranja|15.99|Legumes|qualquer1|qualquer2|10.0|13/02/2024
