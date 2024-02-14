@@ -186,24 +186,32 @@ class ControllerVenda:
 
 
             print('Venda cadastrado com Sucesso', totalVendido)
+            if quantidadeVendida != i.quantidade:
+                valorQnt = float(i.quantidade) - float(quantidadeVendida)
+            if i.quantidade >= quantidadeVendida and nomeProduto == i.produto.nome:
 
-            if quantidadeVendida == i.quantidade and nomeProduto == i.produto.nome:
-                if quantidadeVendida < i.quantidade:
-                    valorQnt = i.quantidade - quantidadeVendida
                 for i in range(len(x)):
                     if x[i].quantidade == quantidadeVendida:
                         del x[i]
                         break
+                if int(x.quantidade) >= int(quantidadeVendida):
+                    with open('Estoque.txt', "w") as arq:
+                        for i in x:
+                            arq.writelines(
+                                i.produto.nome + "|" + i.produto.preco + "|" + i.produto.categoria + "|" + str(
+                                    valorQnt) + "\n")
+                else:
+                    with open('Estoque.txt', "w") as arq:
+                        for i in x:
+                            arq.writelines(
+                                i.produto.nome + "|" + i.produto.preco + "|" + i.produto.categoria + "|" + str(
+                                    i.quantidade) + "\n")
                 print('Venda Passei aqui')
             else:
                 print('Venda não feita')
         else:
             print("Passou no Else")
 
-        with open('Estoque.txt', "w") as arq:
-            for i in x:
-                arq.writelines(
-                    i.produto.nome + "|" + i.produto.preco + "|" + i.produto.categoria + "|" + str(i.quantidade) + "\n")
 
 c = ControllerVenda()
 
