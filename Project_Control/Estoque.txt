@@ -1,4 +1,3 @@
-Cebola|14.99|Legumes|10
-Limão|14.99|Legumes|10
-Melância|15.99|Legumes|10
-Laranja|15.99|Legumes|10
+Limão|14.99|Legumes|0
+Melância|15.99|Legumes|0
+Laranja|15.99|Legumes|0

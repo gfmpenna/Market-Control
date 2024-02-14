@@ -175,24 +175,36 @@ class ControllerVenda:
 
         y = list(filter(lambda x: x.produto.nome == nomeProduto, x))
         z = list(filter(lambda x: x.quantidade >= quantidadeVendida,x))
-
+        valorQnt = 0
         if len(y) > 0 and len(z) > 0:
+
             for i in x:
-                vendido = Venda(Produtos(i.produto.nome, i.produto.preco, i.produto.categoria), vendedor, comprador, float(i.quantidade))
+                totalVendido = float(i.produto.preco) * float(quantidadeVendida)
+                vendido = Venda(Produtos(i.produto.nome, i.produto.preco, i.produto.categoria), vendedor, comprador, float(totalVendido))
 
             DaoVenda.salvar(vendido)
 
-            totalVendido = float(i.produto.preco) * float(quantidadeVendida)
+
             print('Venda cadastrado com Sucesso', totalVendido)
 
-            if quantidadeVendida == i.quantidade:
-                print('Venda')
+            if quantidadeVendida == i.quantidade and nomeProduto == i.produto.nome:
+                if quantidadeVendida < i.quantidade:
+                    valorQnt = i.quantidade - quantidadeVendida
+                for i in range(len(x)):
+                    if x[i].quantidade == quantidadeVendida:
+                        del x[i]
+                        break
+                print('Venda Passei aqui')
             else:
                 print('Venda não feita')
         else:
             print("Passou no Else")
 
+        with open('Estoque.txt', "w") as arq:
+            for i in x:
+                arq.writelines(
+                    i.produto.nome + "|" + i.produto.preco + "|" + i.produto.categoria + "|" + str(i.quantidade) + "\n")
 
 c = ControllerVenda()
 
-c.cadastrarVenda('Laranja', 'qualquer1', 'qualquer2', '10')
+c.cadastrarVenda('Laranja', 'qualquer1', 'qualquer2', '12')
