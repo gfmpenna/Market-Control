@@ -2,5 +2,5 @@ Banana | 5 | Frutas | Caio | Marcos | 5 | 06/02/2024
 Alface | 5 | Legumes | Guilheme | Ramom | 50 | 06/02/2024
 Alface|5|Legumes|Joaquim|Ramom|75|06/02/2024
 Alface|5|Legumes|Joaquim|Ramom|75|06/02/2024
-Laranja|15.99|Legumes|qualquer1|qualquer2|191.88|15/02/2024
-Laranja|15.99|Legumes|qualquer1|qualquer2|1726.92|15/02/2024
+Laranja|15.99|Legumes|Juarez|Marcelo|959.4|15/02/2024
+Laranja|15.99|Legumes|Juarez|Marcelo|959.4|15/02/2024

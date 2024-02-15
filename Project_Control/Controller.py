@@ -260,30 +260,29 @@ class ControllerVenda:
 
         y = list(filter(lambda x: x.produto.nome == nomeProduto, x))
         z = list(filter(lambda x: x.quantidade >= quantidadeVendida, x))
-        valorQnt = 0
+        val = 0
         produto_encontrado = 0
         if len(y) > 0 and len(z) > 0:
 
             for item in x:
-                if item.produto.nome == nomeProduto and item.quantidade > quantidadeVendida:
+                if item.produto.nome == nomeProduto:
                     produto_encontrado = item.quantidade
-                    totalVendido = float(item.produto.preco) * float(quantidadeVendida)
-                    vendido = Venda(Produtos(item.produto.nome, item.produto.preco, item.produto.categoria), vendedor,
+                    if produto_encontrado > quantidadeVendida:
+                        totalVendido = float(item.produto.preco) * float(quantidadeVendida)
+                        vendido = Venda(Produtos(item.produto.nome, item.produto.preco, item.produto.categoria), vendedor,
                                     comprador,
                                     float(totalVendido))
-                    DaoVenda.salvar(vendido)
-                    print('Venda cadastrada com sucesso. Valor total:', totalVendido)
-                    break
+                        DaoVenda.salvar(vendido)
+                        print('Venda cadastrada com sucesso. Valor total:', totalVendido)
                 else:
                     if item.produto.nome == nomeProduto:
-                        print(f'Quantidade de produtos indisponivel, Produto {item.produto.nome} em estoque {item.quantidade}')
+                        print(
+                            f'Quantidade de produtos indisponivel, Produto {item.produto.nome} em estoque {item.quantidade}')
 
             if float(produto_encontrado) >= float(quantidadeVendida):
                 # Atualizando a quantidade do produto
-                val = 0
                 val = float(produto_encontrado) - float(quantidadeVendida)
                 # Atualizando o arquivo de estoque
-
                 with open('Estoque.txt', "w") as arq:
                     for item in x:
                         if item.produto.nome == nomeProduto:
@@ -294,13 +293,12 @@ class ControllerVenda:
                             arq.writelines(
                                 item.produto.nome + "|" + item.produto.preco + "|" + item.produto.categoria + "|" + str(
                                     item.quantidade) + "\n")
-                print('Venda Passei aqui')
             else:
-                print('Venda não feita')
+                print(f'Quantidade de {nomeProduto} é de {produto_encontrado} em nosso Estoque.')
         else:
-            print("Passou no Else")
+            print("Produto não encontrado, verifique o nome do produto desejado!")
 
 
 c = ControllerVenda()
 
-c.cadastrarVenda('Laranja', 'qualquer1', 'qualquer2', '108')
+c.cadastrarVenda('Melância', 'Juarez', 'Marcelo', '6')
