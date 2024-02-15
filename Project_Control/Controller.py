@@ -161,96 +161,11 @@ class ControllerEstoque:
 
 c = ControllerEstoque()
 
+
 # c.cadastrarProduto('Mamão', '14.99', 'Legumes', '10')
 # c.alterarProduto('Mamão', 'Laranja', '15,99', 'Legumes', '10')
 # c.deletarProduto('Tomate')
 # c.mostrarEstoque()
-
-'''
-class ControllerVenda:
-
-    def cadastrarVenda(self, nomeProduto, vendedor, comprador, quantidadeVendida):
-        x = DaoEstoque.listar()
-
-        y = list(filter(lambda x: x.produto.nome == nomeProduto, x))
-        z = list(filter(lambda x: x.quantidade >= str(quantidadeVendida), x))
-        valorQnt = 0
-        if len(y) > 0 and len(z) > 0:
-
-            for i in x:
-                totalVendido = float(i.produto.preco) * float(quantidadeVendida)
-                vendido = Venda(Produtos(i.produto.nome, i.produto.preco, i.produto.categoria), vendedor, comprador,
-                                float(totalVendido))
-
-            DaoVenda.salvar(vendido)
-            produto_encontrado = None
-            for p in x:
-                if p.produto.nome == p.produto.nome:
-                    produto_encontrado = p
-                    break
-
-            print('Venda cadastrado com Sucesso', totalVendido)
-            if quantidadeVendida != i.quantidade:
-                valorQnt = float(i.quantidade) - float(quantidadeVendida)
-            v = i.quantidade
-            b = i.produto.nome
-
-            print(b)
-            if produto_encontrado is not None and float(v) >= float(quantidadeVendida):
-                # Atualizando a quantidade do produto
-                v =  float(v) - float(quantidadeVendida)
-
-                for i in range(len(x)):
-                    if x[i].quantidade == quantidadeVendida:
-                        del x[i]
-                        break
-                with open('Estoque.txt', "w") as arq:
-                    for item in x:
-                        arq.writelines(
-                            item.produto.nome + "|" + item.produto.preco + "|" + item.produto.categoria + "|" + str(
-                                item.quantidade) + "\n")
-
-                print('Venda cadastrada com sucesso. Valor total:', totalVendido)
-                print('Venda Passei aqui')
-            else:
-                print('Venda não feita')
-        else:
-            print("Passou no Else")
-
-
-    def cadastrarVenda(self, nomeProduto, vendedor, comprador, quantidadeVendida):
-
-        estoque = DaoEstoque.listar()
-
-        # Encontrando o produto no estoque
-        produto_encontrado = None
-        for item in estoque:
-            if item.produto.nome == nomeProduto:
-                produto_encontrado = item
-                break
-
-        if produto_encontrado is not None and produto_encontrado.quantidade >= quantidadeVendida:
-            # Atualizando a quantidade do produto
-            produto_encontrado.quantidade -= quantidadeVendida
-
-            # Salvando a venda
-            totalVendido = float(produto_encontrado.produto.preco) * float(quantidadeVendida)
-            venda = Venda(Produtos(produto_encontrado.produto.nome, produto_encontrado.produto.preco,
-                                   produto_encontrado.produto.categoria), vendedor, comprador, float(totalVendido))
-            DaoVenda.salvar(venda)
-
-            # Atualizando o arquivo de estoque
-            with open('Estoque.txt', "w") as arq:
-                for item in estoque:
-                    arq.writelines(item.produto.nome + "|" + item.produto.preco + "|" + item.produto.categoria + "|" + str(
-                        item.quantidade) + "\n")
-
-            print('Venda cadastrada com sucesso. Valor total:', totalVendido)
-
-        else:
-            print('Venda não realizada: produto não encontrado no estoque ou quantidade insuficiente.')
-
-'''
 
 
 class ControllerVenda:
@@ -259,10 +174,10 @@ class ControllerVenda:
         x = DaoEstoque.listar()
 
         y = list(filter(lambda y: y.produto.nome == nomeProduto, x))
-        z = list(filter(lambda z: z.quantidade >= quantidadeVendida,x))
+        z = list(filter(lambda z: z.quantidade >= quantidadeVendida, x))
         val = 0
         produto_encontrado = 0
-        print(len(y) ,  len(z))
+        print(len(y), len(z))
 
         if len(y) > 0:
 
@@ -271,9 +186,10 @@ class ControllerVenda:
                     produto_encontrado = item.quantidade
                     if produto_encontrado > quantidadeVendida:
                         totalVendido = float(item.produto.preco) * float(quantidadeVendida)
-                        vendido = Venda(Produtos(item.produto.nome, item.produto.preco, item.produto.categoria), vendedor,
-                                    comprador,
-                                    float(totalVendido))
+                        vendido = Venda(Produtos(item.produto.nome, item.produto.preco, item.produto.categoria),
+                                        vendedor,
+                                        comprador,
+                                        float(totalVendido))
                         DaoVenda.salvar(vendido)
                         print('Venda cadastrada com sucesso. Valor total:', totalVendido)
                 else:
