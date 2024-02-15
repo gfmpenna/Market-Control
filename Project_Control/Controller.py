@@ -258,11 +258,13 @@ class ControllerVenda:
     def cadastrarVenda(self, nomeProduto, vendedor, comprador, quantidadeVendida):
         x = DaoEstoque.listar()
 
-        y = list(filter(lambda x: x.produto.nome == nomeProduto, x))
-        z = list(filter(lambda x: x.quantidade >= quantidadeVendida, x))
+        y = list(filter(lambda y: y.produto.nome == nomeProduto, x))
+        z = list(filter(lambda z: z.quantidade >= quantidadeVendida,x))
         val = 0
         produto_encontrado = 0
-        if len(y) > 0 and len(z) > 0:
+        print(len(y) ,  len(z))
+
+        if len(y) > 0:
 
             for item in x:
                 if item.produto.nome == nomeProduto:
@@ -301,4 +303,4 @@ class ControllerVenda:
 
 c = ControllerVenda()
 
-c.cadastrarVenda('Melância', 'Juarez', 'Marcelo', '6')
+c.cadastrarVenda('Melância', 'Juarez', 'Marcelo', '150')
